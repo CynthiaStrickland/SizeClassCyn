@@ -14,6 +14,8 @@
 		3DCB87361C737CD70095C730 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DCB87341C737CD70095C730 /* LaunchScreen.storyboard */; };
 		3DCB87411C737CD70095C730 /* SizeClassCynTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB87401C737CD70095C730 /* SizeClassCynTests.swift */; };
 		3DCB874C1C737CD70095C730 /* SizeClassCynUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB874B1C737CD70095C730 /* SizeClassCynUITests.swift */; };
+		3DCB875A1C738B620095C730 /* Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB87591C738B620095C730 /* Additions.swift */; };
+		3DCB875C1C738F720095C730 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB875B1C738F720095C730 /* Filters.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		3DCB87471C737CD70095C730 /* SizeClassCynUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SizeClassCynUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DCB874B1C737CD70095C730 /* SizeClassCynUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeClassCynUITests.swift; sourceTree = "<group>"; };
 		3DCB874D1C737CD70095C730 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DCB87591C738B620095C730 /* Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Additions.swift; sourceTree = "<group>"; };
+		3DCB875B1C738F720095C730 /* Filters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +103,12 @@
 			children = (
 				3DCB872B1C737CD70095C730 /* AppDelegate.swift */,
 				3DCB872D1C737CD70095C730 /* ViewController.swift */,
+				3DCB87591C738B620095C730 /* Additions.swift */,
 				3DCB872F1C737CD70095C730 /* Main.storyboard */,
 				3DCB87321C737CD70095C730 /* Assets.xcassets */,
 				3DCB87341C737CD70095C730 /* LaunchScreen.storyboard */,
 				3DCB87371C737CD70095C730 /* Info.plist */,
+				3DCB875B1C738F720095C730 /* Filters.swift */,
 			);
 			path = SizeClassCyn;
 			sourceTree = "<group>";
@@ -256,6 +262,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DCB875A1C738B620095C730 /* Additions.swift in Sources */,
+				3DCB875C1C738F720095C730 /* Filters.swift in Sources */,
 				3DCB872E1C737CD70095C730 /* ViewController.swift in Sources */,
 				3DCB872C1C737CD70095C730 /* AppDelegate.swift in Sources */,
 			);
