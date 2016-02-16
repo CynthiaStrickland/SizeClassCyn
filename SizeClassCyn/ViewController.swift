@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CloudKit
+
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -34,7 +36,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func image(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafePointer<Void>)
     {
-        if let error != nil {
+        if error != nil {
             
             let alertView = UIAlertController(title: "Saved", message: "Your image has been save to your photos", preferredStyle: .Alert)
             let okAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
@@ -93,6 +95,51 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             selector: "applicationBecameInactive:",
             name: UIApplicationWillResignActiveNotification,
             object: nil)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        container.accountStatusWithCompletionHandler {
+            (status: CKAccountStatus, error: NSError?) in
+            
+            /* Be careful, we might be on a different thread now so make sure that
+            your UI operations go on the main thread */
+            NSOperationQueue().addOperationWithBlock  ({ () -> Void in
+                
+                var title: String!
+                var message: String!
+                
+                if error != nil{
+                    title = "Error"
+                    message = "An error occurred = \(error)"
+                } else {
+                    
+                    title = "No errors occurred"
+                    
+                    switch status{
+                    case .Available:
+                        message = "The user is logged in to iCloud"
+                    case .CouldNotDetermine:
+                        message = "Could not determine if the user is logged" +
+                        " into iCloud or not"
+                    case .NoAccount:
+                        message = "User is not logged into iCloud"
+                    case .Restricted:
+                        message = "Could not access user's iCloud account information"
+                    }
+                    
+                    self.displayAlertWithTitle(title, message: message)
+                }
+                
+            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+
+                })
+                
+            })
+            
+        }
+        
     }
     
     /* Just a little method to help us display alert dialogs to the user */

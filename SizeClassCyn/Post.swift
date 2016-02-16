@@ -22,7 +22,7 @@ class Post {
 enum PostError: ErrorType               //must conform to errorType
 {
     case WritingImage
-    case CreatingCKRecord
+    case CKRecord
 }
 
 extension Post {
@@ -37,7 +37,7 @@ extension Post {
             
             record.setObject(asset, forKey: "Image")
             
-            return record } else {throw PostError.CreatingCKRecord}
+            return record } else {throw PostError.CKRecord}
         
         }
     }
