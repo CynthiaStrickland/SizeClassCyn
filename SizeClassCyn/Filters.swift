@@ -20,8 +20,8 @@ class filters {
     private class func filterImage(name: String, image: UIImage, completion: (FiltersCompletion)) {
             NSOperationQueue().addOperationWithBlock { () -> Void in                        //Using secondary thread
             
-            guard let theFilter = CIFilter(name: name) else { fatalError("Check Filter Spelling") }
-            theFilter.setValue(CIImage(image:  image), forKey: kCIInputAngleKey)            //creating a filter and setting input filter
+            guard let filter = CIFilter(name: name) else { fatalError("Check Filter Spelling") }
+            filter.setValue(CIImage(image:  image), forKey: kCIInputAngleKey)            //creating a filter and setting input filter
             
                 //GPU Context -  We are creating
                 let options = [kCIContextWorkingColorSpace : NSNull()]
@@ -30,7 +30,7 @@ class filters {
             
             //Get the final image
             
-                guard let outputImage = theFilter.outputImage else { fatalError("Why no image") }
+                guard let outputImage = filter.outputImage else { fatalError("Why no image") }
                 let CGImage = GPUContext.createCGImage(outputImage, fromRect: outputImage.extent)
                 
                 NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
@@ -38,10 +38,15 @@ class filters {
                 })
             }
         }
+    
+    class func bw(image: UIImage, completion: FiltersCompletion) {
+        self.filter("CIPhotoEffectMono", image: image, completion: completion)
     }
+}
 
 
-
+//let filterNames = CIFilter.filterNamesInCategory(kCICategoryBuiltIn) as [String]
+//print(filterNames)
 
 
 
