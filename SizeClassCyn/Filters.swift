@@ -17,7 +17,7 @@ class filters {
     
     
     
-    private class func filterImage(name: String, image: UIImage, completion: (FiltersCompletion)) {
+    class func filterImage(name: String, image: UIImage, completion: (FiltersCompletion)) {
             NSOperationQueue().addOperationWithBlock { () -> Void in                        //Using secondary thread
             
             guard let filter = CIFilter(name: name) else { fatalError("Check Filter Spelling") }

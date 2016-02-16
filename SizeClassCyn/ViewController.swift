@@ -34,7 +34,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func image(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafePointer<Void>)
     {
-        if let error == nil {
+        if let error != nil {
             
             let alertView = UIAlertController(title: "Saved", message: "Your image has been save to your photos", preferredStyle: .Alert)
             let okAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
@@ -82,7 +82,30 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        imagePicker.delegate = self
+        /* Find out when the app is becoming active and inactive
+        so that we can find out when the user's iCloud logging status changes.*/
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "applicationBecameActive:",
+            name: UIApplicationDidBecomeActiveNotification,
+            object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "applicationBecameInactive:",
+            name: UIApplicationWillResignActiveNotification,
+            object: nil)
+    }
+    
+    /* Just a little method to help us display alert dialogs to the user */
+    func displayAlertWithTitle(title: String, message: String){
+        let controller = UIAlertController(title: title,
+            message: message,
+            preferredStyle: .Alert)
+        
+        controller.addAction(UIAlertAction(title: "OK",
+            style: .Default,
+            handler: nil))
+        
+        presentViewController(controller, animated: true, completion: nil)
         
     }
 
