@@ -28,11 +28,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func editButtonPressed(sender: UIBarButtonItem) {
         
+        guard let image = self.imageView.image else { return }
         
-        let alertView = UIAlertController(title: "Login Problem", message: "Wrong username or password." as String, preferredStyle:.Alert)
-        let okAction = UIAlertAction(title: "Foiled Again!", style: .Default, handler: nil)
-        alertView.addAction(okAction)
-        self.presentViewController(alertView, animated: true, completion: nil)
+        let actionSheet = UIAlertController(title: "Filters", message: "Please Select a Filter" as String, preferredStyle:.Alert)
+        let bwAction = UIAlertAction(title: "Black & White", style: .Default) { (action) -> Void in
+            filters.bw(image, completion: { (theImage) -> () in
+                self.imageView.image = theImage })
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+            actionSheet.addAction(bwAction)
+            actionSheet.addAction(cancelAction)
+            
+        self.presentViewController(actionSheet, animated: true, completion: nil)
         
         
     }
