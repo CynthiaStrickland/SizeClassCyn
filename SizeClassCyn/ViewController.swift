@@ -23,7 +23,26 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
-    @IBAction func saveImagePressed(sender: UIBarButtonItem) {
+    @IBAction func saveImagePressed(sender: UIBarButtonItem)
+    {
+        
+        guard let image = self.imageView.image else { return }
+        UIImageWriteToSavedPhotosAlbum(image, self, "image: didFinishSavingWithError:contextInto:", nil)
+        
+        
+    }
+    
+    func image(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafePointer<Void>)
+    {
+        if let error == nil {
+            
+            let alertView = UIAlertController(title: "Saved", message: "Your image has been save to your photos", preferredStyle: .Alert)
+            let okAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            
+            alertView.addAction(okAction)
+                
+            self.presentViewController(alertView, animated: true, completion: nil)
+        }
     }
     
     @IBAction func editButtonPressed(sender: UIBarButtonItem) {

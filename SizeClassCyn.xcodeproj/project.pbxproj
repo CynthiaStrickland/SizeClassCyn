@@ -16,6 +16,9 @@
 		3DCB874C1C737CD70095C730 /* SizeClassCynUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB874B1C737CD70095C730 /* SizeClassCynUITests.swift */; };
 		3DCB875A1C738B620095C730 /* Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB87591C738B620095C730 /* Additions.swift */; };
 		3DCB875C1C738F720095C730 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB875B1C738F720095C730 /* Filters.swift */; };
+		3DCB875E1C73A13E0095C730 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB875D1C73A13E0095C730 /* API.swift */; };
+		3DCB87601C73A2780095C730 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB875F1C73A2780095C730 /* Post.swift */; };
+		3DCB87631C73A40D0095C730 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DCB87621C73A40D0095C730 /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,10 @@
 		3DCB874D1C737CD70095C730 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DCB87591C738B620095C730 /* Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Additions.swift; sourceTree = "<group>"; };
 		3DCB875B1C738F720095C730 /* Filters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
+		3DCB875D1C73A13E0095C730 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		3DCB875F1C73A2780095C730 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		3DCB87611C73A4010095C730 /* SizeClassCyn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SizeClassCyn.entitlements; sourceTree = "<group>"; };
+		3DCB87621C73A40D0095C730 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DCB87631C73A40D0095C730 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,10 +89,13 @@
 		3DCB871F1C737CD70095C730 = {
 			isa = PBXGroup;
 			children = (
+				3DCB87651C73A5DB0095C730 /* VIEWS */,
+				3DCB87641C73A5D10095C730 /* Models */,
 				3DCB872A1C737CD70095C730 /* SizeClassCyn */,
 				3DCB873F1C737CD70095C730 /* SizeClassCynTests */,
 				3DCB874A1C737CD70095C730 /* SizeClassCynUITests */,
 				3DCB87291C737CD70095C730 /* Products */,
+				3DCB87621C73A40D0095C730 /* CloudKit.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,14 +112,15 @@
 		3DCB872A1C737CD70095C730 /* SizeClassCyn */ = {
 			isa = PBXGroup;
 			children = (
+				3DCB87611C73A4010095C730 /* SizeClassCyn.entitlements */,
 				3DCB872B1C737CD70095C730 /* AppDelegate.swift */,
 				3DCB872D1C737CD70095C730 /* ViewController.swift */,
-				3DCB87591C738B620095C730 /* Additions.swift */,
-				3DCB872F1C737CD70095C730 /* Main.storyboard */,
-				3DCB87321C737CD70095C730 /* Assets.xcassets */,
-				3DCB87341C737CD70095C730 /* LaunchScreen.storyboard */,
-				3DCB87371C737CD70095C730 /* Info.plist */,
 				3DCB875B1C738F720095C730 /* Filters.swift */,
+				3DCB875D1C73A13E0095C730 /* API.swift */,
+				3DCB875F1C73A2780095C730 /* Post.swift */,
+				3DCB87591C738B620095C730 /* Additions.swift */,
+				3DCB87321C737CD70095C730 /* Assets.xcassets */,
+				3DCB87371C737CD70095C730 /* Info.plist */,
 			);
 			path = SizeClassCyn;
 			sourceTree = "<group>";
@@ -129,6 +141,22 @@
 				3DCB874D1C737CD70095C730 /* Info.plist */,
 			);
 			path = SizeClassCynUITests;
+			sourceTree = "<group>";
+		};
+		3DCB87641C73A5D10095C730 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		3DCB87651C73A5DB0095C730 /* VIEWS */ = {
+			isa = PBXGroup;
+			children = (
+				3DCB87341C737CD70095C730 /* LaunchScreen.storyboard */,
+				3DCB872F1C737CD70095C730 /* Main.storyboard */,
+			);
+			name = VIEWS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +227,12 @@
 				TargetAttributes = {
 					3DCB87271C737CD70095C730 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = LK662Y5U4K;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					3DCB873B1C737CD70095C730 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -265,7 +299,9 @@
 				3DCB875A1C738B620095C730 /* Additions.swift in Sources */,
 				3DCB875C1C738F720095C730 /* Filters.swift in Sources */,
 				3DCB872E1C737CD70095C730 /* ViewController.swift in Sources */,
+				3DCB87601C73A2780095C730 /* Post.swift in Sources */,
 				3DCB872C1C737CD70095C730 /* AppDelegate.swift in Sources */,
+				3DCB875E1C73A13E0095C730 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +343,7 @@
 				3DCB87301C737CD70095C730 /* Base */,
 			);
 			name = Main.storyboard;
+			path = SizeClassCyn;
 			sourceTree = "<group>";
 		};
 		3DCB87341C737CD70095C730 /* LaunchScreen.storyboard */ = {
@@ -315,6 +352,7 @@
 				3DCB87351C737CD70095C730 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = SizeClassCyn;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -407,10 +445,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SizeClassCyn/SizeClassCyn.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SizeClassCyn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cynthia.whitlatch.SizeClassCyn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -418,10 +460,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SizeClassCyn/SizeClassCyn.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SizeClassCyn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cynthia.whitlatch.SizeClassCyn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
